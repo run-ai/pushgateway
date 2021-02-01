@@ -24,6 +24,7 @@ jobs:
     executor: golang
 
     steps:
+    - prometheus/setup_environment
     - run:
          command: |-
            echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
