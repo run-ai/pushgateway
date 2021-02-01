@@ -21,6 +21,7 @@ jobs:
     - prometheus/store_artifact:
         file: pushgateway
   publish-runai:
+    steps:
     - run:
          command: |-
            echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
