@@ -21,6 +21,8 @@ jobs:
     - prometheus/store_artifact:
         file: pushgateway
   publish-runai:
+    executor: docker
+
     steps:
     - run:
          command: |-
