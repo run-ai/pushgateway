@@ -28,7 +28,7 @@ jobs:
     - run:
          command: |-
            echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
-           echo "export DOCKER_PASSWORD=`echo $STAGING_GCLOUD_SERVICE_JSON_CONTENT | base64 -d" >> $BASH_ENV
+           echo "export DOCKER_PASSWORD=\`echo $STAGING_GCLOUD_SERVICE_JSON_CONTENT | base64 -d\`" >> $BASH_ENV
     - run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_LOGIN --password-stdin gcr.io
     - prometheus/publish_images:
         login_variable: DOCKER_LOGIN
