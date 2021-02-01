@@ -20,12 +20,6 @@ jobs:
     - run: make
     - prometheus/store_artifact:
         file: pushgateway
-  pre_docker_commands:
-    steps:
-    - run:
-        command: |-
-          echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
-          echo "export DOCKER_PASSWORD=`cat my.json`"  >> $BASH_ENV
 
 workflows:
   version: 2
@@ -48,6 +42,11 @@ workflows:
           branches:
             only: master
     - prometheus/publish_images:
+        pre-steps:
+          - run:
+              command: |-
+                  echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
+                  echo "export DOCKER_PASSWORD=`cat my.json`"  >> $BASH_ENV
         login_variable: DOCKER_LOGIN
         organization: run-ai
         password_variable: DOCKER_PASSWORD
