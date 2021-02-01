@@ -28,11 +28,6 @@ jobs:
     - run:
          command: |-
            echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
-    - run:
-         command: |-
-            pwd
-            ls
-            cat Makefile*
     - prometheus/publish_images:
         login_variable: DOCKER_LOGIN
         organization: run-ai
