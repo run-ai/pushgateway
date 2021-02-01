@@ -21,3 +21,9 @@ DOCKER_IMAGE_NAME ?= pushgateway
 assets:
 	@echo ">> writing assets"
 	@cd $(PREFIX)/asset && GO111MODULE=$(GO111MODULE) $(GO) generate && $(GOFMT) -w assets_vfsdata.go
+
+docker: common-docker
+
+docker-publish: common-docker-publish
+
+docker-manifest: common-docker-manifest
