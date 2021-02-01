@@ -28,6 +28,7 @@ jobs:
     - run:
          command: |-
            echo "export DOCKER_LOGIN=_json_key" >> $BASH_ENV
+    - run: docker login -u $DOCKER_LOGIN -p $STAGING_GCLOUD_SERVICE_JSON_CONTENT gcr.io
     - prometheus/publish_images:
         login_variable: DOCKER_LOGIN
         organization: run-ai
