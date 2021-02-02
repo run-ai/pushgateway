@@ -13,7 +13,8 @@ ARG OS="linux"
 COPY --chown=nobody:root .build/${OS}-${ARCH}/pushgateway /bin/pushgateway
 
 EXPOSE 9091
-RUN mkdir -p /pushgateway && chown nobody:nobody /pushgateway
+RUN mkdir -p /pushgateway && chown nobody:root /pushgateway
+COPY --chown=nobody:root LICENSE /licenses
 WORKDIR /pushgateway
 
 USER 65534
