@@ -27,7 +27,7 @@ jobs:
     - prometheus/setup_build_environment:
          docker_version: 19.03.8
     - run: >-
-            echo "export DOCKERFILE_PATH=Dockerfile.ubi8 >> $BASH_ENV
+            echo "export DOCKERFILE_PATH=Dockerfile.ubi8" >> $BASH_ENV
     - run: make docker DOCKER_REPO=gcr.io/run-ai-staging
     - run: docker images
     - run: echo $STAGING_GCLOUD_SERVICE_JSON_CONTENT | base64 -d | docker login -u _json_key --password-stdin gcr.io
