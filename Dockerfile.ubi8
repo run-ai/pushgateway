@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
-ARG VERSIOH
+ARG VERSION
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
-LABEL name="NVIDIA DCGM Exporter"
+LABEL name="Prometheus Pushgateway"
 LABEL vendor="The Prometheus Authors"
 LABEL version=$VERSION
 LABEL release="N/A"
