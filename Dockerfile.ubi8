@@ -17,6 +17,4 @@ RUN mkdir -p /pushgateway && chown nobody:root /pushgateway
 COPY --chown=nobody:root LICENSE /licenses/
 WORKDIR /pushgateway
 
-USER 65534
-
 ENTRYPOINT [ "/bin/pushgateway" ]
